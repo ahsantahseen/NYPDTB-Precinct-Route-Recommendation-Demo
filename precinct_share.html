@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transit Precinct Operations Demo</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="./precinct_share.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="inner">
+        <p class="kicker">NYPD x MTA Stakeholder Demo</p>
+        <h1>Precinct-Level Optimization Console</h1>
+        <p>
+          Select a transit precinct to load its station footprint, ML risk
+          signals, and a recommended patrol route sequence.
+        </p>
+        <p class="method-note">
+          Station-to-precinct assignment in this demo uses nearest anchor-station approximation.
+        </p>
+      </div>
+    </header>
+
+    <main class="inner">
+      <section class="card controls">
+        <label>
+          Transit Precinct
+          <select id="precinctSelect"></select>
+        </label>
+        <label>
+          Route Stops
+          <input id="maxStops" type="number" min="3" max="15" value="8" />
+        </label>
+        <label>
+          Max Route Distance (km)
+          <input id="maxDistanceKm" type="number" min="2" max="120" value="30" />
+        </label>
+        <button id="runBtn">Generate Precinct Route</button>
+      </section>
+
+      <section class="stats">
+        <article class="card stat">
+          <p class="label">Stations In Precinct</p>
+          <p id="sStations" class="value">-</p>
+        </article>
+        <article class="card stat">
+          <p class="label">Predicted Demand Sum</p>
+          <p id="sImpact" class="value">-</p>
+        </article>
+        <article class="card stat">
+          <p class="label">Lines Represented</p>
+          <p id="sLines" class="value">-</p>
+        </article>
+        <article class="card stat">
+          <p class="label">Route Distance (km)</p>
+          <p id="sDistance" class="value">-</p>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Recommended Route For Selected Precinct</h2>
+        <p class="note">
+          Sequence is generated from precinct-associated stations using
+          ML-predicted station demand and nearest-next stop logic under distance
+          limits.
+        </p>
+        <div id="routeMap" aria-label="Route map"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Station</th>
+                <th>Borough</th>
+                <th>Routes</th>
+                <th>Predicted Demand</th>
+                <th>Leg Distance (km)</th>
+              </tr>
+            </thead>
+            <tbody id="routeBody">
+              <tr>
+                <td colspan="6">Loading precinct data...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>All Stations Associated With Selected Precinct</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Station</th>
+                <th>Borough</th>
+                <th>Routes</th>
+                <th>Predicted Demand</th>
+                <th>Latest Observed Count</th>
+              </tr>
+            </thead>
+            <tbody id="stationsBody">
+              <tr>
+                <td colspan="5">Loading stations...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script>
+      const numberFmt = new Intl.NumberFormat("en-US");
+      let precincts = [];
+      let map = null;
+      let mapRouteLayer = null;
+      let mapStationLayer = null;
+
+      function fmt(value, digits = 2) {
+        if (value === null || value === undefined || Number.isNaN(Number(value))) return "-";
+        const n = Number(value);
+        return digits === 0 ? numberFmt.format(Math.round(n)) : n.toFixed(digits);
+      }
+
+      function setText(id, v) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = v;
+      }
+
+      function initMap() {
+        if (map || typeof L === "undefined") return;
+        map = L.map("routeMap", { zoomControl: true }).setView([40.74, -73.95], 11);
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "&copy; OpenStreetMap contributors",
+          maxZoom: 18,
+        }).addTo(map);
+        mapRouteLayer = L.layerGroup().addTo(map);
+        mapStationLayer = L.layerGroup().addTo(map);
+      }
+
+      function renderMapRoute(route, allStations) {
+        if (!map || !mapRouteLayer || !mapStationLayer) return;
+        mapRouteLayer.clearLayers();
+        mapStationLayer.clearLayers();
+
+        const bounds = [];
+        (allStations || []).forEach((s) => {
+          if (!Number.isFinite(Number(s.lat)) || !Number.isFinite(Number(s.lon))) return;
+          const marker = L.circleMarker([Number(s.lat), Number(s.lon)], {
+            radius: 4,
+            color: "#5b6f84",
+            weight: 1,
+            fillColor: "#96a8b8",
+            fillOpacity: 0.5,
+          });
+          marker.addTo(mapStationLayer);
+          bounds.push([Number(s.lat), Number(s.lon)]);
+        });
+
+        if (!route || !route.length) {
+          if (bounds.length) map.fitBounds(bounds, { padding: [20, 20] });
+          return;
+        }
+
+        const routeLatLngs = route.map((s) => [Number(s.lat), Number(s.lon)]);
+        L.polyline(routeLatLngs, {
+          color: "#cf6f1a",
+          weight: 4,
+          opacity: 0.95,
+        }).addTo(mapRouteLayer);
+
+        route.forEach((s, idx) => {
+          const lat = Number(s.lat);
+          const lon = Number(s.lon);
+          if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
+
+          const marker = L.circleMarker([lat, lon], {
+            radius: 8,
+            color: "#0b3a67",
+            weight: 2,
+            fillColor: "#f59a45",
+            fillOpacity: 0.95,
+          }).addTo(mapRouteLayer);
+
+          marker.bindTooltip(
+            `${idx + 1}. ${s.name}<br/>Predicted: ${fmt(s.predicted_count)}`,
+            { direction: "top" }
+          );
+          bounds.push([lat, lon]);
+        });
+
+        if (bounds.length) {
+          map.fitBounds(bounds, { padding: [22, 22] });
+        }
+      }
+
+      function haversineKm(lat1, lon1, lat2, lon2) {
+        const toRad = (d) => (d * Math.PI) / 180;
+        const r = 6371;
+        const dLat = toRad(lat2 - lat1);
+        const dLon = toRad(lon2 - lon1);
+        const a =
+          Math.sin(dLat / 2) ** 2 +
+          Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
+        return 2 * r * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      }
+
+      function generateRoute(stations, maxStops, maxDistanceKm) {
+        const candidates = stations
+          .filter((s) => Number.isFinite(Number(s.predicted_count)))
+          .sort((a, b) => Number(b.predicted_count) - Number(a.predicted_count));
+
+        if (!candidates.length) {
+          return { route: [], totalDistance: 0, totalImpact: 0 };
+        }
+
+        const start = candidates[0];
+        const route = [start];
+        const used = new Set([start.station_id]);
+        let totalDistance = 0;
+
+        while (route.length < maxStops) {
+          const current = route[route.length - 1];
+          const next = candidates
+            .filter((x) => !used.has(x.station_id))
+            .map((x) => {
+              const leg = haversineKm(
+                Number(current.lat),
+                Number(current.lon),
+                Number(x.lat),
+                Number(x.lon)
+              );
+              const score = Number(x.predicted_count) / (leg + 0.35);
+              return { ...x, leg, score };
+            })
+            .filter((x) => totalDistance + x.leg <= maxDistanceKm)
+            .sort((a, b) => b.score - a.score)[0];
+
+          if (!next) break;
+          totalDistance += next.leg;
+          route.push(next);
+          used.add(next.station_id);
+        }
+
+        const totalImpact = route.reduce((s, x) => s + Number(x.predicted_count || 0), 0);
+        return { route, totalDistance, totalImpact };
+      }
+
+      function renderForPrecinct(precinctId) {
+        initMap();
+        const p = precincts.find((x) => String(x.precinct) === String(precinctId));
+        if (!p) return;
+
+        const maxStops = Math.max(3, Math.min(15, Number(document.getElementById("maxStops").value) || 8));
+        const maxDistanceKm = Math.max(2, Number(document.getElementById("maxDistanceKm").value) || 30);
+
+        const lines = new Set((p.stations || []).flatMap((s) => s.routes || []));
+        setText("sStations", fmt(p.station_count, 0));
+        setText("sImpact", fmt(p.total_predicted_count));
+        setText("sLines", fmt(lines.size, 0));
+
+        const { route, totalDistance } = generateRoute(p.stations || [], maxStops, maxDistanceKm);
+        setText("sDistance", fmt(totalDistance));
+        renderMapRoute(route, p.stations || []);
+
+        const routeBody = document.getElementById("routeBody");
+        if (routeBody) {
+          if (!route.length) {
+            routeBody.innerHTML = "<tr><td colspan='6'>No route generated for this precinct.</td></tr>";
+          } else {
+            routeBody.innerHTML = route
+              .map((s, idx) => {
+                let leg = 0;
+                if (idx > 0) {
+                  const prev = route[idx - 1];
+                  leg = haversineKm(Number(prev.lat), Number(prev.lon), Number(s.lat), Number(s.lon));
+                }
+                return `
+                  <tr>
+                    <td>${idx + 1}</td>
+                    <td>${s.name}</td>
+                    <td>${s.borough || "-"}</td>
+                    <td>${(s.routes || []).join(", ") || "-"}</td>
+                    <td>${fmt(s.predicted_count)}</td>
+                    <td>${idx === 0 ? "Start" : fmt(leg)}</td>
+                  </tr>
+                `;
+              })
+              .join("");
+          }
+        }
+
+        const stationsBody = document.getElementById("stationsBody");
+        if (stationsBody) {
+          const sortedStations = [...(p.stations || [])].sort(
+            (a, b) => Number(b.predicted_count) - Number(a.predicted_count)
+          );
+          stationsBody.innerHTML = sortedStations
+            .map(
+              (s) => `
+                <tr>
+                  <td>${s.name}</td>
+                  <td>${s.borough || "-"}</td>
+                  <td>${(s.routes || []).join(", ") || "-"}</td>
+                  <td>${fmt(s.predicted_count)}</td>
+                  <td>${fmt(s.actual_latest_count)}</td>
+                </tr>
+              `
+            )
+            .join("");
+        }
+      }
+
+      async function init() {
+        try {
+          const res = await fetch("./precinct_index.json");
+          if (!res.ok) throw new Error("precinct_index.json not found");
+          const payload = await res.json();
+          precincts = Array.isArray(payload.precincts) ? payload.precincts : [];
+
+          const select = document.getElementById("precinctSelect");
+          if (!select || !precincts.length) return;
+
+          select.innerHTML = precincts
+            .map(
+              (p) =>
+                `<option value="${p.precinct}">Transit Precinct ${p.precinct} (${fmt(
+                  p.total_predicted_count
+                )} predicted demand)</option>`
+            )
+            .join("");
+
+          const run = () => renderForPrecinct(select.value);
+          select.addEventListener("change", run);
+          document.getElementById("runBtn").addEventListener("click", run);
+          run();
+        } catch (err) {
+          console.error(err);
+          const routeBody = document.getElementById("routeBody");
+          const stationsBody = document.getElementById("stationsBody");
+          if (routeBody) {
+            routeBody.innerHTML =
+              "<tr><td colspan='6'>Could not load precinct data. Run build scripts and serve this folder from a static server.</td></tr>";
+          }
+          if (stationsBody) {
+            stationsBody.innerHTML =
+              "<tr><td colspan='5'>Could not load precinct data.</td></tr>";
+          }
+        }
+      }
+
+      init();
+    </script>
+  </body>
+</html>
