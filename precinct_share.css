@@ -1,0 +1,180 @@
+:root {
+  --bg: #f2f5f9;
+  --ink: #0f172a;
+  --muted: #475569;
+  --panel: #ffffff;
+  --line: #d8e2ec;
+  --brand: #0b3a67;
+  --accent: #cf6f1a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Segoe UI", Tahoma, sans-serif;
+  background: linear-gradient(180deg, #eff5fb, var(--bg));
+  color: var(--ink);
+}
+
+.top {
+  background: linear-gradient(120deg, #0a2f53, #145189);
+  color: #fff;
+  padding: 2rem 1rem;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #f5c289;
+  margin: 0 0 0.4rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+}
+
+.top p {
+  margin: 0.7rem 0 0;
+  color: #d4e4f4;
+  max-width: 780px;
+}
+
+.method-note {
+  font-size: 0.85rem;
+  color: #c6dbef;
+}
+
+main.inner {
+  padding: 1rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.95rem;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 0.7rem;
+  align-items: end;
+}
+
+label {
+  display: grid;
+  gap: 0.22rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+select,
+input {
+  width: 100%;
+  border: 1px solid #bccddd;
+  border-radius: 8px;
+  padding: 0.45rem 0.55rem;
+  color: var(--ink);
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.55rem 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.label {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.value {
+  margin: 0.3rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+h2 {
+  margin: 0 0 0.5rem;
+}
+
+.note {
+  margin: 0 0 0.7rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+#routeMap {
+  width: 100%;
+  height: 380px;
+  border: 1px solid #d7e3ee;
+  border-radius: 10px;
+  margin: 0.2rem 0 0.8rem;
+  background: #eaf1f8;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid #e5edf5;
+  padding: 0.58rem 0.45rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+th {
+  background: #f6f9fc;
+}
+
+@media (max-width: 900px) {
+  .controls {
+    grid-template-columns: 1fr 1fr;
+  }
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+  .stats {
+    grid-template-columns: 1fr;
+  }
+  #routeMap {
+    height: 300px;
+  }
+}

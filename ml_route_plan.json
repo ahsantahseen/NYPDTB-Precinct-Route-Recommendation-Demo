@@ -1,0 +1,2481 @@
+{
+  "generated_at_utc": "2026-03-17T18:27:49.985695+00:00",
+  "prediction_snapshot_date": "2025-12-31",
+  "model": {
+    "type": "HistGradientBoostingRegressor",
+    "target": "target_complaint_count",
+    "features": [
+      "day_of_week",
+      "is_weekend",
+      "month",
+      "complaints_prev_day",
+      "complaints_prev_7d_same_day",
+      "complaints_prev_7d_avg",
+      "complaints_prev_7d_std",
+      "ridership_missing",
+      "subway_ridership_filled",
+      "subway_prepandemic_ratio_filled"
+    ],
+    "metrics": {
+      "mae": 0.09180518142029856,
+      "rmse": 0.2414788812361376,
+      "train_rows": 758862,
+      "valid_rows": 10530,
+      "train_end_date": "2025-12-01",
+      "valid_start_date": "2025-12-02",
+      "valid_end_date": "2025-12-31"
+    }
+  },
+  "candidates": [
+    {
+      "station_id": "454",
+      "name": "74 St-Broadway",
+      "borough": "Q",
+      "lat": 40.746848,
+      "lon": -73.891394,
+      "predicted_count": 0.3728246575533558,
+      "actual_latest_count": 0.0,
+      "line_hint": "7",
+      "routes": [
+        "7"
+      ]
+    },
+    {
+      "station_id": "92",
+      "name": "Broadway Junction",
+      "borough": "Bk",
+      "lat": 40.679498,
+      "lon": -73.904512,
+      "predicted_count": 0.2836336571151614,
+      "actual_latest_count": 0.0,
+      "line_hint": "J",
+      "routes": [
+        "J",
+        "Z"
+      ]
+    },
+    {
+      "station_id": "11",
+      "name": "Times Sq-42 St",
+      "borough": "M",
+      "lat": 40.754672,
+      "lon": -73.986754,
+      "predicted_count": 0.2836336571151614,
+      "actual_latest_count": 0.0,
+      "line_hint": "N",
+      "routes": [
+        "N",
+        "Q",
+        "R",
+        "W"
+      ]
+    },
+    {
+      "station_id": "163",
+      "name": "42 St-Port Authority Bus Terminal",
+      "borough": "M",
+      "lat": 40.757308,
+      "lon": -73.989735,
+      "predicted_count": 0.2594014546720703,
+      "actual_latest_count": 0.0,
+      "line_hint": "A",
+      "routes": [
+        "A",
+        "C",
+        "E"
+      ]
+    },
+    {
+      "station_id": "153",
+      "name": "125 St",
+      "borough": "M",
+      "lat": 40.811109,
+      "lon": -73.952343,
+      "predicted_count": 0.2472152828320214,
+      "actual_latest_count": 0.0,
+      "line_hint": "A",
+      "routes": [
+        "A",
+        "C",
+        "B",
+        "D"
+      ]
+    },
+    {
+      "station_id": "164",
+      "name": "34 St-Penn Station",
+      "borough": "M",
+      "lat": 40.752287,
+      "lon": -73.993391,
+      "predicted_count": 0.2387794246964854,
+      "actual_latest_count": 0.0,
+      "line_hint": "A",
+      "routes": [
+        "A",
+        "C",
+        "E"
+      ]
+    },
+    {
+      "station_id": "166",
+      "name": "14 St",
+      "borough": "M",
+      "lat": 40.740893,
+      "lon": -74.00169,
+      "predicted_count": 0.2063482755242542,
+      "actual_latest_count": 0.0,
+      "line_hint": "A",
+      "routes": [
+        "A",
+        "C",
+        "E"
+      ]
+    },
+    {
+      "station_id": "192",
+      "name": "Rockaway Blvd",
+      "borough": "Q",
+      "lat": 40.680429,
+      "lon": -73.843853,
+      "predicted_count": 0.1881962213636093,
+      "actual_latest_count": 0.0,
+      "line_hint": "A",
+      "routes": [
+        "A"
+      ]
+    },
+    {
+      "station_id": "303",
+      "name": "157 St",
+      "borough": "M",
+      "lat": 40.834041,
+      "lon": -73.94489,
+      "predicted_count": 0.1706519079509833,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "217",
+      "name": "170 St",
+      "borough": "Bx",
+      "lat": 40.839306,
+      "lon": -73.9134,
+      "predicted_count": 0.14710032709157986,
+      "actual_latest_count": 0.0,
+      "line_hint": "B",
+      "routes": [
+        "B",
+        "D"
+      ]
+    },
+    {
+      "station_id": "25",
+      "name": "Jay St-MetroTech",
+      "borough": "Bk",
+      "lat": 40.69218,
+      "lon": -73.985942,
+      "predicted_count": 0.13513692132573185,
+      "actual_latest_count": 0.0,
+      "line_hint": "R",
+      "routes": [
+        "R"
+      ]
+    },
+    {
+      "station_id": "26",
+      "name": "DeKalb Av",
+      "borough": "Bk",
+      "lat": 40.690635,
+      "lon": -73.981824,
+      "predicted_count": 0.13513692132573185,
+      "actual_latest_count": 0.0,
+      "line_hint": "B",
+      "routes": [
+        "B",
+        "Q",
+        "R"
+      ]
+    },
+    {
+      "station_id": "13",
+      "name": "28 St",
+      "borough": "M",
+      "lat": 40.745494,
+      "lon": -73.988691,
+      "predicted_count": 0.13249461571239332,
+      "actual_latest_count": 0.0,
+      "line_hint": "R",
+      "routes": [
+        "R",
+        "W"
+      ]
+    },
+    {
+      "station_id": "12",
+      "name": "34 St-Herald Sq",
+      "borough": "M",
+      "lat": 40.749567,
+      "lon": -73.98795,
+      "predicted_count": 0.12920526591084933,
+      "actual_latest_count": 0.0,
+      "line_hint": "N",
+      "routes": [
+        "N",
+        "Q",
+        "R",
+        "W"
+      ]
+    },
+    {
+      "station_id": "60",
+      "name": "Fort Hamilton Pkwy",
+      "borough": "Bk",
+      "lat": 40.640914,
+      "lon": -73.994304,
+      "predicted_count": 0.12588051025537672,
+      "actual_latest_count": 0.0,
+      "line_hint": "D",
+      "routes": [
+        "D"
+      ]
+    },
+    {
+      "station_id": "18",
+      "name": "Canal St",
+      "borough": "M",
+      "lat": 40.719527,
+      "lon": -74.001775,
+      "predicted_count": 0.12588051025537672,
+      "actual_latest_count": 0.0,
+      "line_hint": "R",
+      "routes": [
+        "R",
+        "W"
+      ]
+    },
+    {
+      "station_id": "226",
+      "name": "42 St-Bryant Pk",
+      "borough": "M",
+      "lat": 40.754222,
+      "lon": -73.984569,
+      "predicted_count": 0.11728681790101488,
+      "actual_latest_count": 0.0,
+      "line_hint": "B",
+      "routes": [
+        "B",
+        "D",
+        "F",
+        "M"
+      ]
+    },
+    {
+      "station_id": "151",
+      "name": "145 St",
+      "borough": "M",
+      "lat": 40.824783,
+      "lon": -73.944216,
+      "predicted_count": 0.11009034385535765,
+      "actual_latest_count": 0.0,
+      "line_hint": "A",
+      "routes": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "station_id": "368",
+      "name": "Morrison Av-Soundview",
+      "borough": "Bx",
+      "lat": 40.829521,
+      "lon": -73.874516,
+      "predicted_count": 0.10676908074044528,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "428",
+      "name": "174 St",
+      "borough": "Bx",
+      "lat": 40.837288,
+      "lon": -73.887734,
+      "predicted_count": 0.10676908074044528,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "5"
+      ]
+    },
+    {
+      "station_id": "131",
+      "name": "Bushwick Av-Aberdeen St",
+      "borough": "Bk",
+      "lat": 40.682829,
+      "lon": -73.905249,
+      "predicted_count": 0.10500397208134434,
+      "actual_latest_count": 0.0,
+      "line_hint": "L",
+      "routes": [
+        "L"
+      ]
+    },
+    {
+      "station_id": "34",
+      "name": "53 St",
+      "borough": "Bk",
+      "lat": 40.645069,
+      "lon": -74.014034,
+      "predicted_count": 0.1037130505226333,
+      "actual_latest_count": 0.0,
+      "line_hint": "R",
+      "routes": [
+        "R"
+      ]
+    },
+    {
+      "station_id": "30",
+      "name": "Prospect Av",
+      "borough": "Bk",
+      "lat": 40.665414,
+      "lon": -73.992872,
+      "predicted_count": 0.1037130505226333,
+      "actual_latest_count": 0.0,
+      "line_hint": "R",
+      "routes": [
+        "R"
+      ]
+    },
+    {
+      "station_id": "41",
+      "name": "7 Av",
+      "borough": "Bk",
+      "lat": 40.67705,
+      "lon": -73.972367,
+      "predicted_count": 0.1037130505226333,
+      "actual_latest_count": 0.0,
+      "line_hint": "B",
+      "routes": [
+        "B",
+        "Q"
+      ]
+    },
+    {
+      "station_id": "185",
+      "name": "Liberty Av",
+      "borough": "Bk",
+      "lat": 40.674542,
+      "lon": -73.896548,
+      "predicted_count": 0.10262773431471459,
+      "actual_latest_count": 0.0,
+      "line_hint": "C",
+      "routes": [
+        "C"
+      ]
+    },
+    {
+      "station_id": "181",
+      "name": "Utica Av",
+      "borough": "Bk",
+      "lat": 40.679364,
+      "lon": -73.930729,
+      "predicted_count": 0.10262773431471459,
+      "actual_latest_count": 0.0,
+      "line_hint": "A",
+      "routes": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "station_id": "99",
+      "name": "Lorimer St",
+      "borough": "Bk",
+      "lat": 40.703869,
+      "lon": -73.947408,
+      "predicted_count": 0.10136494085895141,
+      "actual_latest_count": 0.0,
+      "line_hint": "M",
+      "routes": [
+        "M",
+        "J"
+      ]
+    },
+    {
+      "station_id": "97",
+      "name": "Myrtle Av",
+      "borough": "Bk",
+      "lat": 40.697207,
+      "lon": -73.935657,
+      "predicted_count": 0.10058412623204334,
+      "actual_latest_count": 0.0,
+      "line_hint": "M",
+      "routes": [
+        "M",
+        "J",
+        "Z"
+      ]
+    },
+    {
+      "station_id": "177",
+      "name": "Clinton-Washington Avs",
+      "borough": "Bk",
+      "lat": 40.683263,
+      "lon": -73.965838,
+      "predicted_count": 0.10058412623204334,
+      "actual_latest_count": 0.0,
+      "line_hint": "C",
+      "routes": [
+        "C"
+      ]
+    },
+    {
+      "station_id": "157",
+      "name": "96 St",
+      "borough": "M",
+      "lat": 40.791642,
+      "lon": -73.964696,
+      "predicted_count": 0.09832538282317639,
+      "actual_latest_count": 0.0,
+      "line_hint": "C",
+      "routes": [
+        "C",
+        "B"
+      ]
+    },
+    {
+      "station_id": "167",
+      "name": "W 4 St-Wash Sq",
+      "borough": "M",
+      "lat": 40.732338,
+      "lon": -74.000495,
+      "predicted_count": 0.09832538282317639,
+      "actual_latest_count": 0.0,
+      "line_hint": "A",
+      "routes": [
+        "A",
+        "C",
+        "E"
+      ]
+    },
+    {
+      "station_id": "142",
+      "name": "Botanic Garden",
+      "borough": "Bk",
+      "lat": 40.670343,
+      "lon": -73.959245,
+      "predicted_count": 0.09686569112326342,
+      "actual_latest_count": 0.0,
+      "line_hint": "S",
+      "routes": [
+        "S"
+      ]
+    },
+    {
+      "station_id": "123",
+      "name": "Grand St",
+      "borough": "Bk",
+      "lat": 40.711926,
+      "lon": -73.94067,
+      "predicted_count": 0.09093403570838088,
+      "actual_latest_count": 0.0,
+      "line_hint": "L",
+      "routes": [
+        "L"
+      ]
+    },
+    {
+      "station_id": "106",
+      "name": "Fulton St",
+      "borough": "M",
+      "lat": 40.710374,
+      "lon": -74.007582,
+      "predicted_count": 0.09093403570838088,
+      "actual_latest_count": 1.0,
+      "line_hint": "J",
+      "routes": [
+        "J",
+        "Z"
+      ]
+    },
+    {
+      "station_id": "376",
+      "name": "Brook Av",
+      "borough": "Bx",
+      "lat": 40.807566,
+      "lon": -73.91924,
+      "predicted_count": 0.08822765369716035,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "383",
+      "name": "183 St",
+      "borough": "Bx",
+      "lat": 40.858407,
+      "lon": -73.903879,
+      "predicted_count": 0.0815490644389924,
+      "actual_latest_count": 0.0,
+      "line_hint": "4",
+      "routes": [
+        "4"
+      ]
+    },
+    {
+      "station_id": "377",
+      "name": "3 Av-138 St",
+      "borough": "Bx",
+      "lat": 40.810476,
+      "lon": -73.926138,
+      "predicted_count": 0.0815490644389924,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "373",
+      "name": "E 149 St",
+      "borough": "Bx",
+      "lat": 40.812118,
+      "lon": -73.904098,
+      "predicted_count": 0.0815490644389924,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "385",
+      "name": "176 St",
+      "borough": "Bx",
+      "lat": 40.84848,
+      "lon": -73.911794,
+      "predicted_count": 0.0815490644389924,
+      "actual_latest_count": 0.0,
+      "line_hint": "4",
+      "routes": [
+        "4"
+      ]
+    },
+    {
+      "station_id": "209",
+      "name": "Far Rockaway-Mott Av",
+      "borough": "Q",
+      "lat": 40.603995,
+      "lon": -73.755405,
+      "predicted_count": 0.0815490644389924,
+      "actual_latest_count": 0.0,
+      "line_hint": "A",
+      "routes": [
+        "A"
+      ]
+    },
+    {
+      "station_id": "188",
+      "name": "Euclid Av",
+      "borough": "Bk",
+      "lat": 40.675377,
+      "lon": -73.872106,
+      "predicted_count": 0.0815490644389924,
+      "actual_latest_count": 0.0,
+      "line_hint": "A",
+      "routes": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "station_id": "199",
+      "name": "Broad Channel",
+      "borough": "Q",
+      "lat": 40.608382,
+      "lon": -73.815925,
+      "predicted_count": 0.0815490644389924,
+      "actual_latest_count": 0.0,
+      "line_hint": "A",
+      "routes": [
+        "A",
+        "S"
+      ]
+    },
+    {
+      "station_id": "204",
+      "name": "Beach 67 St",
+      "borough": "Q",
+      "lat": 40.590927,
+      "lon": -73.796924,
+      "predicted_count": 0.0815490644389924,
+      "actual_latest_count": 0.0,
+      "line_hint": "A",
+      "routes": [
+        "A"
+      ]
+    },
+    {
+      "station_id": "360",
+      "name": "Pelham Bay Park",
+      "borough": "Bx",
+      "lat": 40.852462,
+      "lon": -73.828121,
+      "predicted_count": 0.08020229144759017,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "434",
+      "name": "3 Av-149 St",
+      "borough": "Bx",
+      "lat": 40.816109,
+      "lon": -73.917757,
+      "predicted_count": 0.07951215069654742,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "5"
+      ]
+    },
+    {
+      "station_id": "402",
+      "name": "Grand Central-42 St",
+      "borough": "M",
+      "lat": 40.751776,
+      "lon": -73.976848,
+      "predicted_count": 0.07951215069654742,
+      "actual_latest_count": 0.0,
+      "line_hint": "4",
+      "routes": [
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "station_id": "363",
+      "name": "Westchester Sq-E Tremont Av",
+      "borough": "Bx",
+      "lat": 40.839892,
+      "lon": -73.842952,
+      "predicted_count": 0.0794214768206821,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "359",
+      "name": "Flatbush Av-Brooklyn College",
+      "borough": "Bk",
+      "lat": 40.632836,
+      "lon": -73.947642,
+      "predicted_count": 0.0794214768206821,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "5"
+      ]
+    },
+    {
+      "station_id": "357",
+      "name": "Beverly Rd",
+      "borough": "Bk",
+      "lat": 40.645098,
+      "lon": -73.948959,
+      "predicted_count": 0.0794214768206821,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "5"
+      ]
+    },
+    {
+      "station_id": "307",
+      "name": "116 St-Columbia University",
+      "borough": "M",
+      "lat": 40.807722,
+      "lon": -73.96411,
+      "predicted_count": 0.07663033605107025,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "333",
+      "name": "Wall St",
+      "borough": "M",
+      "lat": 40.706821,
+      "lon": -74.0091,
+      "predicted_count": 0.07663033605107025,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "station_id": "274",
+      "name": "Court Sq-23 St",
+      "borough": "Q",
+      "lat": 40.747846,
+      "lon": -73.946,
+      "predicted_count": 0.07663033605107025,
+      "actual_latest_count": 0.0,
+      "line_hint": "E",
+      "routes": [
+        "E",
+        "F"
+      ]
+    },
+    {
+      "station_id": "223",
+      "name": "Lexington Av/63 St",
+      "borough": "M",
+      "lat": 40.764629,
+      "lon": -73.966113,
+      "predicted_count": 0.07592982362997866,
+      "actual_latest_count": 0.0,
+      "line_hint": "M",
+      "routes": [
+        "M",
+        "Q"
+      ]
+    },
+    {
+      "station_id": "230",
+      "name": "Broadway-Lafayette St",
+      "borough": "M",
+      "lat": 40.725297,
+      "lon": -73.996204,
+      "predicted_count": 0.07592982362997866,
+      "actual_latest_count": 0.0,
+      "line_hint": "B",
+      "routes": [
+        "B",
+        "D",
+        "F",
+        "M"
+      ]
+    },
+    {
+      "station_id": "224",
+      "name": "57 St",
+      "borough": "M",
+      "lat": 40.763972,
+      "lon": -73.97745,
+      "predicted_count": 0.07592982362997866,
+      "actual_latest_count": 1.0,
+      "line_hint": "M",
+      "routes": [
+        "M"
+      ]
+    },
+    {
+      "station_id": "219",
+      "name": "161 St-Yankee Stadium",
+      "borough": "Bx",
+      "lat": 40.827905,
+      "lon": -73.925651,
+      "predicted_count": 0.07466766612861278,
+      "actual_latest_count": 0.0,
+      "line_hint": "B",
+      "routes": [
+        "B",
+        "D"
+      ]
+    },
+    {
+      "station_id": "330",
+      "name": "South Ferry",
+      "borough": "M",
+      "lat": 40.702068,
+      "lon": -74.013664,
+      "predicted_count": 0.07073256141981038,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "273",
+      "name": "Queens Plaza",
+      "borough": "Q",
+      "lat": 40.748973,
+      "lon": -73.937243,
+      "predicted_count": 0.06995174679290231,
+      "actual_latest_count": 0.0,
+      "line_hint": "E",
+      "routes": [
+        "E",
+        "F",
+        "R"
+      ]
+    },
+    {
+      "station_id": "263",
+      "name": "63 Dr-Rego Park",
+      "borough": "Q",
+      "lat": 40.729846,
+      "lon": -73.861604,
+      "predicted_count": 0.06995174679290231,
+      "actual_latest_count": 0.0,
+      "line_hint": "M",
+      "routes": [
+        "M",
+        "R"
+      ]
+    },
+    {
+      "station_id": "336",
+      "name": "Hoyt St",
+      "borough": "Bk",
+      "lat": 40.690545,
+      "lon": -73.985065,
+      "predicted_count": 0.06995174679290231,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "station_id": "265",
+      "name": "Grand Av-Newtown",
+      "borough": "Q",
+      "lat": 40.737015,
+      "lon": -73.877223,
+      "predicted_count": 0.06995174679290231,
+      "actual_latest_count": 0.0,
+      "line_hint": "M",
+      "routes": [
+        "M",
+        "R"
+      ]
+    },
+    {
+      "station_id": "236",
+      "name": "Bergen St",
+      "borough": "Bk",
+      "lat": 40.686145,
+      "lon": -73.990862,
+      "predicted_count": 0.06935978502745548,
+      "actual_latest_count": 0.0,
+      "line_hint": "F",
+      "routes": [
+        "F",
+        "G"
+      ]
+    },
+    {
+      "station_id": "426",
+      "name": "E 180 St",
+      "borough": "Bx",
+      "lat": 40.841894,
+      "lon": -73.873488,
+      "predicted_count": 0.06935978502745548,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "5"
+      ]
+    },
+    {
+      "station_id": "441",
+      "name": "110 St-Malcolm X Plaza",
+      "borough": "M",
+      "lat": 40.799075,
+      "lon": -73.951822,
+      "predicted_count": 0.06935978502745548,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "station_id": "278",
+      "name": "Jamaica Center-Parsons/Archer",
+      "borough": "Q",
+      "lat": 40.702147,
+      "lon": -73.801109,
+      "predicted_count": 0.06876989149735291,
+      "actual_latest_count": 1.0,
+      "line_hint": "E",
+      "routes": [
+        "E",
+        "J",
+        "Z"
+      ]
+    },
+    {
+      "station_id": "50",
+      "name": "Avenue M",
+      "borough": "Bk",
+      "lat": 40.617618,
+      "lon": -73.959399,
+      "predicted_count": 0.06708431191588923,
+      "actual_latest_count": 0.0,
+      "line_hint": "Q",
+      "routes": [
+        "Q"
+      ]
+    },
+    {
+      "station_id": "58",
+      "name": "Coney Island-Stillwell Av",
+      "borough": "Bk",
+      "lat": 40.577422,
+      "lon": -73.981233,
+      "predicted_count": 0.06379496211434521,
+      "actual_latest_count": 0.0,
+      "line_hint": "D",
+      "routes": [
+        "D",
+        "F",
+        "N",
+        "Q"
+      ]
+    },
+    {
+      "station_id": "44",
+      "name": "Church Av",
+      "borough": "Bk",
+      "lat": 40.650527,
+      "lon": -73.962982,
+      "predicted_count": 0.06379496211434521,
+      "actual_latest_count": 0.0,
+      "line_hint": "B",
+      "routes": [
+        "B",
+        "Q"
+      ]
+    },
+    {
+      "station_id": "54",
+      "name": "Sheepshead Bay",
+      "borough": "Bk",
+      "lat": 40.586896,
+      "lon": -73.954155,
+      "predicted_count": 0.06379496211434521,
+      "actual_latest_count": 0.0,
+      "line_hint": "B",
+      "routes": [
+        "B",
+        "Q"
+      ]
+    },
+    {
+      "station_id": "65",
+      "name": "79 St",
+      "borough": "Bk",
+      "lat": 40.613501,
+      "lon": -74.00061,
+      "predicted_count": 0.059961061532005595,
+      "actual_latest_count": 0.0,
+      "line_hint": "D",
+      "routes": [
+        "D"
+      ]
+    },
+    {
+      "station_id": "281",
+      "name": "Court Sq",
+      "borough": "Q",
+      "lat": 40.746554,
+      "lon": -73.943832,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "G",
+      "routes": [
+        "G"
+      ]
+    },
+    {
+      "station_id": "456",
+      "name": "61 St-Woodside",
+      "borough": "Q",
+      "lat": 40.74563,
+      "lon": -73.902984,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "7",
+      "routes": [
+        "7"
+      ]
+    },
+    {
+      "station_id": "282",
+      "name": "21 St",
+      "borough": "Q",
+      "lat": 40.744065,
+      "lon": -73.949724,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "G",
+      "routes": [
+        "G"
+      ]
+    },
+    {
+      "station_id": "289",
+      "name": "Bedford-Nostrand Avs",
+      "borough": "Bk",
+      "lat": 40.689627,
+      "lon": -73.953522,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "G",
+      "routes": [
+        "G"
+      ]
+    },
+    {
+      "station_id": "283",
+      "name": "Greenpoint Av",
+      "borough": "Bk",
+      "lat": 40.731352,
+      "lon": -73.954449,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "G",
+      "routes": [
+        "G"
+      ]
+    },
+    {
+      "station_id": "284",
+      "name": "Nassau Av",
+      "borough": "Bk",
+      "lat": 40.724635,
+      "lon": -73.951277,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "G",
+      "routes": [
+        "G"
+      ]
+    },
+    {
+      "station_id": "453",
+      "name": "82 St-Jackson Hts",
+      "borough": "Q",
+      "lat": 40.747659,
+      "lon": -73.883697,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "7",
+      "routes": [
+        "7"
+      ]
+    },
+    {
+      "station_id": "285",
+      "name": "Metropolitan Av",
+      "borough": "Bk",
+      "lat": 40.712792,
+      "lon": -73.951418,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "G",
+      "routes": [
+        "G"
+      ]
+    },
+    {
+      "station_id": "288",
+      "name": "Myrtle-Willoughby Avs",
+      "borough": "Bk",
+      "lat": 40.694568,
+      "lon": -73.949046,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "G",
+      "routes": [
+        "G"
+      ]
+    },
+    {
+      "station_id": "455",
+      "name": "69 St",
+      "borough": "Q",
+      "lat": 40.746325,
+      "lon": -73.896403,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "7",
+      "routes": [
+        "7"
+      ]
+    },
+    {
+      "station_id": "293",
+      "name": "Van Cortlandt Park-242 St",
+      "borough": "Bx",
+      "lat": 40.889248,
+      "lon": -73.898583,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "290",
+      "name": "Classon Av",
+      "borough": "Bk",
+      "lat": 40.688873,
+      "lon": -73.96007,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "G",
+      "routes": [
+        "G"
+      ]
+    },
+    {
+      "station_id": "452",
+      "name": "90 St-Elmhurst Av",
+      "borough": "Q",
+      "lat": 40.748408,
+      "lon": -73.876613,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "7",
+      "routes": [
+        "7"
+      ]
+    },
+    {
+      "station_id": "451",
+      "name": "Junction Blvd",
+      "borough": "Q",
+      "lat": 40.749145,
+      "lon": -73.869527,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "7",
+      "routes": [
+        "7"
+      ]
+    },
+    {
+      "station_id": "450",
+      "name": "103 St-Corona Plaza",
+      "borough": "Q",
+      "lat": 40.749865,
+      "lon": -73.8627,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "7",
+      "routes": [
+        "7"
+      ]
+    },
+    {
+      "station_id": "448",
+      "name": "Mets-Willets Point",
+      "borough": "Q",
+      "lat": 40.754622,
+      "lon": -73.845625,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "7",
+      "routes": [
+        "7"
+      ]
+    },
+    {
+      "station_id": "457",
+      "name": "52 St",
+      "borough": "Q",
+      "lat": 40.744149,
+      "lon": -73.912549,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "7",
+      "routes": [
+        "7"
+      ]
+    },
+    {
+      "station_id": "294",
+      "name": "238 St",
+      "borough": "Bx",
+      "lat": 40.884667,
+      "lon": -73.90087,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "295",
+      "name": "231 St",
+      "borough": "Bx",
+      "lat": 40.878856,
+      "lon": -73.904834,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "447",
+      "name": "Flushing-Main St",
+      "borough": "Q",
+      "lat": 40.7596,
+      "lon": -73.83003,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "7",
+      "routes": [
+        "7"
+      ]
+    },
+    {
+      "station_id": "296",
+      "name": "Marble Hill-225 St",
+      "borough": "M",
+      "lat": 40.874561,
+      "lon": -73.909831,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "297",
+      "name": "215 St",
+      "borough": "M",
+      "lat": 40.869444,
+      "lon": -73.915279,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "298",
+      "name": "207 St",
+      "borough": "M",
+      "lat": 40.864621,
+      "lon": -73.918822,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "446",
+      "name": "Morris Park",
+      "borough": "Bx",
+      "lat": 40.854364,
+      "lon": -73.860495,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "5",
+      "routes": [
+        "5"
+      ]
+    },
+    {
+      "station_id": "300",
+      "name": "191 St",
+      "borough": "M",
+      "lat": 40.855225,
+      "lon": -73.929412,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "280",
+      "name": "Jamaica-Van Wyck",
+      "borough": "Q",
+      "lat": 40.702566,
+      "lon": -73.816859,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "E",
+      "routes": [
+        "E"
+      ]
+    },
+    {
+      "station_id": "271",
+      "name": "Steinway St",
+      "borough": "Q",
+      "lat": 40.756879,
+      "lon": -73.92074,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "M",
+      "routes": [
+        "M",
+        "R"
+      ]
+    },
+    {
+      "station_id": "279",
+      "name": "Sutphin Blvd-Archer Av-JFK Airport",
+      "borough": "Q",
+      "lat": 40.700486,
+      "lon": -73.807969,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "E",
+      "routes": [
+        "E",
+        "J",
+        "Z"
+      ]
+    },
+    {
+      "station_id": "257",
+      "name": "Sutphin Blvd",
+      "borough": "Q",
+      "lat": 40.70546,
+      "lon": -73.810708,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "F",
+      "routes": [
+        "F"
+      ]
+    },
+    {
+      "station_id": "238",
+      "name": "Smith-9 Sts",
+      "borough": "Bk",
+      "lat": 40.67358,
+      "lon": -73.995959,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "F",
+      "routes": [
+        "F",
+        "G"
+      ]
+    },
+    {
+      "station_id": "241",
+      "name": "15 St-Prospect Park",
+      "borough": "Bk",
+      "lat": 40.660365,
+      "lon": -73.979493,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "F",
+      "routes": [
+        "F",
+        "G"
+      ]
+    },
+    {
+      "station_id": "244",
+      "name": "Ditmas Av",
+      "borough": "Bk",
+      "lat": 40.636119,
+      "lon": -73.978172,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "F",
+      "routes": [
+        "F"
+      ]
+    },
+    {
+      "station_id": "466",
+      "name": "5 Av",
+      "borough": "M",
+      "lat": 40.753821,
+      "lon": -73.981963,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "7",
+      "routes": [
+        "7"
+      ]
+    },
+    {
+      "station_id": "246",
+      "name": "Avenue I",
+      "borough": "Bk",
+      "lat": 40.625322,
+      "lon": -73.976127,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "F",
+      "routes": [
+        "F"
+      ]
+    },
+    {
+      "station_id": "248",
+      "name": "Avenue N",
+      "borough": "Bk",
+      "lat": 40.61514,
+      "lon": -73.974197,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "F",
+      "routes": [
+        "F"
+      ]
+    },
+    {
+      "station_id": "249",
+      "name": "Avenue P",
+      "borough": "Bk",
+      "lat": 40.608944,
+      "lon": -73.973022,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "F",
+      "routes": [
+        "F"
+      ]
+    },
+    {
+      "station_id": "252",
+      "name": "Avenue X",
+      "borough": "Bk",
+      "lat": 40.58962,
+      "lon": -73.97425,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "F",
+      "routes": [
+        "F"
+      ]
+    },
+    {
+      "station_id": "464",
+      "name": "Vernon Blvd-Jackson Av",
+      "borough": "Q",
+      "lat": 40.742626,
+      "lon": -73.953581,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "7",
+      "routes": [
+        "7"
+      ]
+    },
+    {
+      "station_id": "253",
+      "name": "Neptune Av",
+      "borough": "Bk",
+      "lat": 40.581011,
+      "lon": -73.974574,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "F",
+      "routes": [
+        "F"
+      ]
+    },
+    {
+      "station_id": "254",
+      "name": "Jamaica-179 St",
+      "borough": "Q",
+      "lat": 40.712646,
+      "lon": -73.783817,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "F",
+      "routes": [
+        "F"
+      ]
+    },
+    {
+      "station_id": "255",
+      "name": "169 St",
+      "borough": "Q",
+      "lat": 40.71047,
+      "lon": -73.793604,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "F",
+      "routes": [
+        "F"
+      ]
+    },
+    {
+      "station_id": "256",
+      "name": "Parsons Blvd",
+      "borough": "Q",
+      "lat": 40.707564,
+      "lon": -73.803326,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 1.0,
+      "line_hint": "F",
+      "routes": [
+        "F"
+      ]
+    },
+    {
+      "station_id": "258",
+      "name": "Briarwood",
+      "borough": "Q",
+      "lat": 40.709179,
+      "lon": -73.820574,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "E",
+      "routes": [
+        "E",
+        "F"
+      ]
+    },
+    {
+      "station_id": "276",
+      "name": "5 Av/53 St",
+      "borough": "M",
+      "lat": 40.760167,
+      "lon": -73.975224,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "E",
+      "routes": [
+        "E",
+        "F"
+      ]
+    },
+    {
+      "station_id": "259",
+      "name": "Kew Gardens-Union Tpke",
+      "borough": "Q",
+      "lat": 40.714441,
+      "lon": -73.831008,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "E",
+      "routes": [
+        "E",
+        "F"
+      ]
+    },
+    {
+      "station_id": "260",
+      "name": "75 Av",
+      "borough": "Q",
+      "lat": 40.718331,
+      "lon": -73.837324,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "E",
+      "routes": [
+        "E",
+        "F"
+      ]
+    },
+    {
+      "station_id": "261",
+      "name": "Forest Hills-71 Av",
+      "borough": "Q",
+      "lat": 40.721691,
+      "lon": -73.844521,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "E",
+      "routes": [
+        "E",
+        "F",
+        "M",
+        "R"
+      ]
+    },
+    {
+      "station_id": "262",
+      "name": "67 Av",
+      "borough": "Q",
+      "lat": 40.726523,
+      "lon": -73.852719,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "M",
+      "routes": [
+        "M",
+        "R"
+      ]
+    },
+    {
+      "station_id": "463",
+      "name": "Hunters Point Av",
+      "borough": "Q",
+      "lat": 40.742216,
+      "lon": -73.948916,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "7",
+      "routes": [
+        "7"
+      ]
+    },
+    {
+      "station_id": "266",
+      "name": "Elmhurst Av",
+      "borough": "Q",
+      "lat": 40.742454,
+      "lon": -73.882017,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "M",
+      "routes": [
+        "M",
+        "R"
+      ]
+    },
+    {
+      "station_id": "267",
+      "name": "Jackson Hts-Roosevelt Av",
+      "borough": "Q",
+      "lat": 40.746644,
+      "lon": -73.891338,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "E",
+      "routes": [
+        "E",
+        "F",
+        "M",
+        "R"
+      ]
+    },
+    {
+      "station_id": "268",
+      "name": "65 St",
+      "borough": "Q",
+      "lat": 40.749669,
+      "lon": -73.898453,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "M",
+      "routes": [
+        "M",
+        "R"
+      ]
+    },
+    {
+      "station_id": "269",
+      "name": "Northern Blvd",
+      "borough": "Q",
+      "lat": 40.752885,
+      "lon": -73.906006,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "M",
+      "routes": [
+        "M",
+        "R"
+      ]
+    },
+    {
+      "station_id": "461",
+      "name": "Queensboro Plaza",
+      "borough": "Q",
+      "lat": 40.750582,
+      "lon": -73.940202,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "N",
+      "routes": [
+        "N",
+        "W"
+      ]
+    },
+    {
+      "station_id": "270",
+      "name": "46 St",
+      "borough": "Q",
+      "lat": 40.756312,
+      "lon": -73.913333,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "M",
+      "routes": [
+        "M",
+        "R"
+      ]
+    },
+    {
+      "station_id": "302",
+      "name": "168 St-Washington Hts",
+      "borough": "M",
+      "lat": 40.840556,
+      "lon": -73.940133,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "459",
+      "name": "40 St-Lowery St",
+      "borough": "Q",
+      "lat": 40.743781,
+      "lon": -73.924016,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "7",
+      "routes": [
+        "7"
+      ]
+    },
+    {
+      "station_id": "443",
+      "name": "Baychester Av",
+      "borough": "Bx",
+      "lat": 40.878663,
+      "lon": -73.838591,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "5",
+      "routes": [
+        "5"
+      ]
+    },
+    {
+      "station_id": "417",
+      "name": "Nereid Av",
+      "borough": "Bx",
+      "lat": 40.898379,
+      "lon": -73.854376,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "5"
+      ]
+    },
+    {
+      "station_id": "442",
+      "name": "Eastchester-Dyre Av",
+      "borough": "Bx",
+      "lat": 40.8883,
+      "lon": -73.830834,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "5",
+      "routes": [
+        "5"
+      ]
+    },
+    {
+      "station_id": "423",
+      "name": "Allerton Av",
+      "borough": "Bx",
+      "lat": 40.865462,
+      "lon": -73.867352,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "5"
+      ]
+    },
+    {
+      "station_id": "379",
+      "name": "Mosholu Pkwy",
+      "borough": "Bx",
+      "lat": 40.87975,
+      "lon": -73.884655,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "4",
+      "routes": [
+        "4"
+      ]
+    },
+    {
+      "station_id": "378",
+      "name": "Woodlawn",
+      "borough": "Bx",
+      "lat": 40.886037,
+      "lon": -73.878751,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "4",
+      "routes": [
+        "4"
+      ]
+    },
+    {
+      "station_id": "421",
+      "name": "Gun Hill Rd",
+      "borough": "Bx",
+      "lat": 40.87785,
+      "lon": -73.866256,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "5"
+      ]
+    },
+    {
+      "station_id": "422",
+      "name": "Burke Av",
+      "borough": "Bx",
+      "lat": 40.871356,
+      "lon": -73.867164,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "5"
+      ]
+    },
+    {
+      "station_id": "375",
+      "name": "Cypress Av",
+      "borough": "Bx",
+      "lat": 40.805368,
+      "lon": -73.914042,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "374",
+      "name": "E 143 St-St Mary's St",
+      "borough": "Bx",
+      "lat": 40.808719,
+      "lon": -73.907657,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "372",
+      "name": "Longwood Av",
+      "borough": "Bx",
+      "lat": 40.816104,
+      "lon": -73.896435,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "305",
+      "name": "137 St-City College",
+      "borough": "M",
+      "lat": 40.822008,
+      "lon": -73.953676,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "371",
+      "name": "Hunts Point Av",
+      "borough": "Bx",
+      "lat": 40.820948,
+      "lon": -73.890549,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "370",
+      "name": "Whitlock Av",
+      "borough": "Bx",
+      "lat": 40.826525,
+      "lon": -73.886283,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "369",
+      "name": "Elder Av",
+      "borough": "Bx",
+      "lat": 40.828584,
+      "lon": -73.879159,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "424",
+      "name": "Pelham Pkwy",
+      "borough": "Bx",
+      "lat": 40.857192,
+      "lon": -73.867615,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "5"
+      ]
+    },
+    {
+      "station_id": "367",
+      "name": "St Lawrence Av",
+      "borough": "Bx",
+      "lat": 40.831509,
+      "lon": -73.867618,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "366",
+      "name": "Parkchester",
+      "borough": "Bx",
+      "lat": 40.833226,
+      "lon": -73.860816,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "380",
+      "name": "Bedford Park Blvd-Lehman College",
+      "borough": "Bx",
+      "lat": 40.873412,
+      "lon": -73.890064,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "4",
+      "routes": [
+        "4"
+      ]
+    },
+    {
+      "station_id": "420",
+      "name": "219 St",
+      "borough": "Bx",
+      "lat": 40.883895,
+      "lon": -73.862633,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "5"
+      ]
+    },
+    {
+      "station_id": "384",
+      "name": "Burnside Av",
+      "borough": "Bx",
+      "lat": 40.853453,
+      "lon": -73.907684,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "4",
+      "routes": [
+        "4"
+      ]
+    },
+    {
+      "station_id": "419",
+      "name": "225 St",
+      "borough": "Bx",
+      "lat": 40.888022,
+      "lon": -73.860341,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "5"
+      ]
+    },
+    {
+      "station_id": "386",
+      "name": "Mt Eden Av",
+      "borough": "Bx",
+      "lat": 40.844434,
+      "lon": -73.914685,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "4",
+      "routes": [
+        "4"
+      ]
+    },
+    {
+      "station_id": "390",
+      "name": "149 St-Grand Concourse",
+      "borough": "Bx",
+      "lat": 40.818375,
+      "lon": -73.927351,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "4",
+      "routes": [
+        "4"
+      ]
+    },
+    {
+      "station_id": "391",
+      "name": "138 St-Grand Concourse",
+      "borough": "Bx",
+      "lat": 40.813224,
+      "lon": -73.929849,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "4",
+      "routes": [
+        "4",
+        "5"
+      ]
+    },
+    {
+      "station_id": "394",
+      "name": "110 St",
+      "borough": "M",
+      "lat": 40.79502,
+      "lon": -73.94425,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "399",
+      "name": "68 St-Hunter College",
+      "borough": "M",
+      "lat": 40.768141,
+      "lon": -73.96387,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "401",
+      "name": "51 St",
+      "borough": "M",
+      "lat": 40.757107,
+      "lon": -73.97192,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "403",
+      "name": "33 St",
+      "borough": "M",
+      "lat": 40.746081,
+      "lon": -73.982076,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "405",
+      "name": "23 St-Baruch College",
+      "borough": "M",
+      "lat": 40.739864,
+      "lon": -73.986599,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "418",
+      "name": "233 St",
+      "borough": "Bx",
+      "lat": 40.893193,
+      "lon": -73.857473,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "5"
+      ]
+    },
+    {
+      "station_id": "407",
+      "name": "Astor Pl",
+      "borough": "M",
+      "lat": 40.730054,
+      "lon": -73.99107,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "408",
+      "name": "Bleecker St",
+      "borough": "M",
+      "lat": 40.725915,
+      "lon": -73.994659,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "411",
+      "name": "Brooklyn Bridge-City Hall",
+      "borough": "M",
+      "lat": 40.713065,
+      "lon": -74.004131,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "4",
+      "routes": [
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "station_id": "414",
+      "name": "Bowling Green",
+      "borough": "M",
+      "lat": 40.704817,
+      "lon": -74.014065,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "4",
+      "routes": [
+        "4",
+        "5"
+      ]
+    },
+    {
+      "station_id": "425",
+      "name": "Bronx Park East",
+      "borough": "Bx",
+      "lat": 40.848828,
+      "lon": -73.868457,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "5"
+      ]
+    },
+    {
+      "station_id": "365",
+      "name": "Castle Hill Av",
+      "borough": "Bx",
+      "lat": 40.834255,
+      "lon": -73.851222,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "364",
+      "name": "Zerega Av",
+      "borough": "Bx",
+      "lat": 40.836488,
+      "lon": -73.847036,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "6",
+      "routes": [
+        "6"
+      ]
+    },
+    {
+      "station_id": "344",
+      "name": "Kingston Av",
+      "borough": "Bk",
+      "lat": 40.669399,
+      "lon": -73.942161,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "3",
+      "routes": [
+        "3"
+      ]
+    },
+    {
+      "station_id": "314",
+      "name": "66 St-Lincoln Center",
+      "borough": "M",
+      "lat": 40.77344,
+      "lon": -73.982209,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "321",
+      "name": "18 St",
+      "borough": "M",
+      "lat": 40.74104,
+      "lon": -73.997871,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "416",
+      "name": "Wakefield-241 St",
+      "borough": "Bx",
+      "lat": 40.903125,
+      "lon": -73.85062,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2"
+      ]
+    },
+    {
+      "station_id": "324",
+      "name": "Houston St",
+      "borough": "M",
+      "lat": 40.728251,
+      "lon": -74.005367,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "326",
+      "name": "Franklin St",
+      "borough": "M",
+      "lat": 40.719318,
+      "lon": -74.006886,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "1",
+      "routes": [
+        "1"
+      ]
+    },
+    {
+      "station_id": "331",
+      "name": "Park Place",
+      "borough": "M",
+      "lat": 40.713051,
+      "lon": -74.008811,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "station_id": "334",
+      "name": "Clark St",
+      "borough": "Bk",
+      "lat": 40.697466,
+      "lon": -73.993086,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "station_id": "335",
+      "name": "Borough Hall",
+      "borough": "Bk",
+      "lat": 40.693219,
+      "lon": -73.989998,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "station_id": "436",
+      "name": "Harlem-148 St",
+      "borough": "M",
+      "lat": 40.82388,
+      "lon": -73.93647,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "3",
+      "routes": [
+        "3"
+      ]
+    },
+    {
+      "station_id": "337",
+      "name": "Nevins St",
+      "borough": "Bk",
+      "lat": 40.688246,
+      "lon": -73.980492,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    {
+      "station_id": "340",
+      "name": "Grand Army Plaza",
+      "borough": "Bk",
+      "lat": 40.675235,
+      "lon": -73.971046,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "station_id": "341",
+      "name": "Eastern Pkwy-Brooklyn Museum",
+      "borough": "Bk",
+      "lat": 40.671987,
+      "lon": -73.964375,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "station_id": "342",
+      "name": "Franklin Av-Medgar Evers College",
+      "borough": "Bk",
+      "lat": 40.670682,
+      "lon": -73.958131,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    {
+      "station_id": "433",
+      "name": "Jackson Av",
+      "borough": "Bx",
+      "lat": 40.81649,
+      "lon": -73.907807,
+      "predicted_count": 0.03374256245566249,
+      "actual_latest_count": 0.0,
+      "line_hint": "2",
+      "routes": [
+        "2",
+        "5"
+      ]
+    }
+  ]
+}
